@@ -1,0 +1,252 @@
+/* --- GLOBAL --- */
+* {
+    margin: 0; padding: 0; box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+body {
+    background: #f5f7fa;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* --- HEADER --- */
+header {
+    background: linear-gradient(135deg, #007bff, #00c4cc);
+    color: #fff;
+    padding: 1rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+header .logo {
+    font-size: 1.6rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+header nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+header nav a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 10px;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+header nav a:hover {
+    color: #ffe066;
+}
+
+/* --- SEARCH SECTION --- */
+.search {
+    background: #fff;
+    margin: 2rem auto;
+    padding: 1.5rem;
+    max-width: 900px;
+    border-radius: 15px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+.search input, .search select {
+    flex: 1 1 150px;
+    padding: 10px 15px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    font-size: 1rem;
+}
+.search button {
+    padding: 10px 20px;
+    background: linear-gradient(135deg, #007bff, #00c4cc);
+    border: none;
+    border-radius: 10px;
+    color: #fff;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+.search button:hover {
+    background: linear-gradient(135deg, #0062cc, #009b9e);
+}
+
+/* --- CONTAINER --- */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+    background: #fff;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+    padding: 2rem;
+}
+.container h3 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    color: #007bff;
+    font-weight: 700;
+}
+
+/* --- BUTTONS --- */
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background: linear-gradient(135deg, #007bff, #00c4cc);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.3s;
+}
+.btn:hover {
+    background: linear-gradient(135deg, #0062cc, #009b9e);
+    transform: translateY(-2px);
+}
+
+/* --- TABLE --- */
+.table-responsive {
+    margin-top: 1.5rem;
+    overflow-x: auto; 
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 600px;
+}
+thead {
+    background: #007bff;
+    color: #fff;
+}
+th, td {
+    padding: 12px 10px;
+    text-align: center;
+    border-bottom: 1px solid #eee;
+}
+img {
+    border-radius: 8px;
+    max-width: 80px;
+    height: auto;
+}
+
+/* --- BADGES --- */
+.badge {
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: #fff;
+}
+.bg-success { background: #28a745; }
+.bg-secondary { background: #6c757d; }
+.bg-danger { background: #dc3545; }
+
+/* --- FOOTER --- */
+footer {
+    text-align: center;
+    margin-top: 3rem;
+    padding: 1rem 0;
+    color: #777;
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 992px) {
+    header {
+        flex-direction: column;
+        gap: 10px;
+    }
+    .search {
+        flex-direction: column;
+        gap: 10px;
+    }
+    .table-responsive table {
+        min-width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    header .logo {
+        font-size: 1.4rem;
+        text-align: center;
+    }
+    header nav {
+        justify-content: center;
+        gap: 8px;
+    }
+    .container {
+        padding: 1rem;
+    }
+    .search input, .search select, .search button {
+        width: 100%;
+    }
+    table th, table td {
+        padding: 8px 5px;
+        font-size: 0.85rem;
+    }
+    img {
+        max-width: 60px;
+    }
+}
+
+/* --- MOBILE TABLE CARD VIEW --- */
+@media (max-width: 576px) {
+    table, thead, tbody, th, td, tr {
+        display: block;
+        width: 100%;
+    }
+
+    /* hide original table header */
+    thead {
+        display: none;
+    }
+
+    /* row becomes a card */
+    tr {
+        background: #fff;
+        border: 1px solid #ddd;
+        border-radius: 10px;
+        padding: 10px 15px;
+        margin-bottom: 15px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+
+    /* each cell: label left, value right */
+    td {
+        display: flex;
+        justify-content: space-between;
+        padding: 8px 0;
+        border-bottom: 1px solid #eee;
+        font-size: 0.9rem;
+    }
+
+    /* show label from data-label */
+    td::before {
+        content: attr(data-label);
+        font-weight: 600;
+        color: #007bff;
+        flex: 0 0 40%;
+        text-align: left;
+    }
+
+    td:last-child {
+        border-bottom: 0;
+    }
+
+    img {
+        max-width: 60px;
+        border-radius: 5px;
+        height: auto;
+    }
+
+    .btn {
+        font-size: 0.75rem;
+        padding: 5px 10px;
+    }
+}
+
